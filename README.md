@@ -76,3 +76,32 @@ $ docker pull ec_maddtolayaway:latest
 ``` bash
 $ docker run -d -p ${puerto}:80 --name container_ec_maddtolayaway ec_maddtolayaway 
 ```
+
+## Edpoints
+
+## /addToLayaway
+
+#### POST
+``` json
+auth:
+ En el header de la peticion mandar el token del usuario en formato Bearer
+  Authorization : Bearer {user_token}
+ 
+body request (opcional):
+{
+    "comic_id": int
+}
+body response:
+{
+    "user_id": "string",
+    "user_name": "string",
+    "comic": {
+        "id": int,
+        "title": "string",
+        "image": "string",
+        "onsaleDate": "string"
+    }
+}
+```
+
+##### Para mayor información una vez ejecutando el proyecto entrar a la url: `{base_url}/docs`
