@@ -4,7 +4,7 @@ from logging.config import dictConfig
 from constans import LogConfig
 
 dictConfig(LogConfig().dict())
-logger = logging.getLogger("ec_mscomics")
+logger = logging.getLogger("ec_msaddtolayaway")
 
 
 def inf(file: str, section: str, message: str):
