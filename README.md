@@ -60,7 +60,7 @@ $ pip3 install -r requirements.tx
 #### Ejecutar
 
 ``` bash 
-$ python3 main.py
+$ uvicorn main:app --host 0.0.0.0
 ``` 
 
 ### Docker
@@ -68,13 +68,16 @@ $ python3 main.py
 #### Descargar imagen
 
 ``` bash
-$ docker pull ec_maddtolayaway:latest
+$ docker pull rikymon/ec_msaddtolayaway:latest
 ```
 
 #### Crear contenedor
 
 ``` bash
-$ docker run -d -p ${puerto}:80 --name container_ec_maddtolayaway ec_maddtolayaway 
+# ${puerto} valor del puerto en la pc local (recomendado 8003)
+# ${ec_mscomics_url} url del projecto ec_mscomics corriendo (default http://localhost:8001)(recomendada http://172.17.0.1:8001)
+# ${ec_msusers_url} url del projecto ec_msusers corriendo (default http://localhost:8002)(recomendada http://172.17.0.1:8001)
+$ docker run -d -p ${puerto}:80 -e USERS_BASE_URL=${ec_msusers_url} -e MARVEL_BASE_URL=${ec_mscomics_url} --name container_ec_maddtolayaway rikymon/ec_msaddtolayaway
 ```
 
 ## Edpoints
